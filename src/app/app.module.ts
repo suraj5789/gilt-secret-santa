@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app.routing";
 import { HomeComponent } from './components/home/home.component';
 import { DataService } from './services/data.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

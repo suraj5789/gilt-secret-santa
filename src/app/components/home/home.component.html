@@ -1,17 +1,27 @@
 
+<div class="row">
+  <div class="col-sm-6">
+  <h3>Secret Santa List</h3>
+  </div>
+  <div class="col-sm-6">
+  <button class="btn btn-primary float-right" (click)="updateRecipients()">Reset Recipient</button>
+  </div>
+</div>
+<div class="row">
 <table class="table">
-  <thead>
+  <thead class="thead-light">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Santa</th>
-      <th scope="col">e-mail<button class="btn btn-primary float-right">Reset Recipient</button></th>
+      <th scope="col">Recipient</th>
+      <th scope="col">Enter E-mail</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of pairedUsers; let i = index;">
+    <tr *ngFor="let santRecp of santaWithRecipients; let i = index;">
       <th scope="row">{{i+1}}</th>
-      <td>{{user.sender.name.first + ' ' + user.sender.name.last}}</td>
-      <!-- <td>{{user.receiver.name.first + ' ' + user.receiver.name.last}}</td> -->
+      <td>{{santRecp.santa.name.first + ' ' + santRecp.santa.name.last}}</td>
+       <td>{{santRecp.recipient.name.first + ' ' + santRecp.recipient.name.last}}</td> 
       <td>
         <div class="input-group">
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Validate your email to check whom to send gift">
@@ -23,3 +33,4 @@
   </tr>
   </tbody>
 </table>
+</div>

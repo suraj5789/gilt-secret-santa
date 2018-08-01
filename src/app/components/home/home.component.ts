@@ -3,16 +3,16 @@ import { DataService } from '../../services/data.service';
 import { User } from '../../models/user.model';
 
 @Component({
-  selector: 'gilt-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'gilt-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  public users: User[];
-  public pairedUsers: any;
-  constructor(private dataService: DataService) { 
-  }
+    public users: User[];
+    public santaWithRecipients: any;
+    constructor(private dataService: DataService) {
+    }
 
     /**
      * angular life cycle hook
@@ -24,30 +24,35 @@ export class HomeComponent implements OnInit {
             this.dataService.loadUsers().subscribe((data) => {
                 this.users = data.users;
                 this.dataService.setUsers(data);
-                this.pairedUsers = this.pairUsers(this.users);
-                console.log(this.pairedUsers);
+                this.updateRecipients();                
+                console.log(this.santaWithRecipients);
             });
         }
     }
 
-    public pairUsers(users: User[]): any {
-        let result = [];
-        let recipients = users.slice();
-        let len = users.length;
-        for (var i = 0; i < len; i++) {
-            var sender =users[i];		
-            var recipientIndex = Math.floor(Math.random() * recipients.length);
-            while (recipients[recipientIndex] === sender) {
-                // Can't send gift to myself
+    public updateRecipients() {
+        this.santaWithRecipients = this.setRecipientForSanta();
+    }
+
+    private setRecipientForSanta(): any {
+        let santaWithRecepients = [];
+        let recipients = this.users.slice();
+        let len = this.users.length;
+        let santa, recipient, recipientIndex, i;
+        for (i = 0; i < len; i++) {
+            santa = this.users[i];
             recipientIndex = Math.floor(Math.random() * recipients.length);
+            // Santa shouldn't be his recipient.
+            if (recipients[recipientIndex] === santa) {
+                recipientIndex = Math.floor(Math.random() * recipients.length);
             }
-    var recipient = recipients.splice(recipientIndex, 1)[0];
-    result.push({
-      sender: sender,
-      receiver: recipient
-    });
-  }
-  return result;
-}
+            recipient = recipients.splice(recipientIndex, 1)[0];
+            santaWithRecepients.push({
+                santa,
+                recipient
+            });
+        }
+        return santaWithRecepients;
+    }
 
 }
