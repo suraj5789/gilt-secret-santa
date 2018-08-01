@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Santa</th>
+      <th scope="col">Reciever</th>
+      <th scope="col">e-mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pairedUsers; let i = index;">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.sender.name.first + ' ' + user.sender.name.last}}</td>
+      <td>{{user.receiver.name.first + ' ' + user.receiver.name.last}}</td>
+      <td>
+        <div class="input-group">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Validate your email to check whom to send gift">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Verify</button>
+          </span>
+        </div>
+      </td>
+  </tr>
+  </tbody>
+</table>
