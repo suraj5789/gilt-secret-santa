@@ -1,5 +1,10 @@
 
 <div class="row">
+  <div class="col-sm-12 text-center">
+  <p>Please enter your email address agaist your name to view your recipient and keep it secret  <i class="fa fa-smile-o"></i> !!! </p>
+  </div>
+</div>
+<div class="row">
   <div class="col-sm-6">
   <h3>Secret Santa List</h3>
   </div>
@@ -23,12 +28,7 @@
       <td>{{santRecp.santa.name.first + ' ' + santRecp.santa.name.last}}</td>
        <td>{{santRecp.recipient.name.first + ' ' + santRecp.recipient.name.last}}</td> 
       <td>
-        <div class="input-group">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Validate your email to check whom to send gift">
-          <span class="input-group-btn">
-          <button class="btn btn-success" type="button">Verify</button>
-          </span>
-        </div>
+        <app-validate-email [user]="santRecp"></app-validate-email>
       </td>
   </tr>
   </tbody>

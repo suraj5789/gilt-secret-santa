@@ -3,11 +3,11 @@ import { DataService } from '../../services/data.service';
 import { User } from '../../models/user.model';
 
 @Component({
-    selector: 'gilt-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    selector: 'gilt-santa-list',
+    templateUrl: './santa-list.component.html',
+    styleUrls: ['./santa-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class SantaListComponent implements OnInit {
 
     public users: User[];
     public santaWithRecipients: any;

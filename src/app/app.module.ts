@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -9,26 +9,26 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app.routing";
-import { HomeComponent } from './components/home/home.component';
+import { SantaListComponent,
+HeaderComponent,
+FooterComponent,
+ValidateEmailComponent  } from './components';
 import { DataService } from './services/data.service';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 
-const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '**', component: HomeComponent }
-];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    SantaListComponent,
     HeaderComponent,
     FooterComponent,
+    ValidateEmailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     ModalModule.forRoot(),

@@ -1,17 +1,17 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { HomeComponent } from './components/home/home.component';
+import { SantaListComponent } from './components';
 
 @NgModule({
     exports: [RouterModule],
     imports: [
         RouterModule.forRoot([
             {
-                component: HomeComponent,
+                component: SantaListComponent,
                 path: "home"
             },
             {
-                component: HomeComponent,
+                component: SantaListComponent,
                 path: "**"
             }])
     ]
