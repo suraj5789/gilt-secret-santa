@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 export class DataService {
 
   public dataLoaded;
-  private users;
+  private users: User[];
   private jsonPath: string = './assets/users.json';
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class DataService {
     /**
      * set all the users in a list once available
      */
-    public setUsers(users: User): void {
+    public setUsers(users: User[]): void {
         this.users = users;
     }
 

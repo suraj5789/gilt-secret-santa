@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { User } from '../../models/user.model';
+import { ActivatedRoute }    from '@angular/router';
 
 @Component({
     selector: 'gilt-santa-list',
@@ -10,8 +11,9 @@ import { User } from '../../models/user.model';
 export class SantaListComponent implements OnInit {
 
     public users: User[];
+    public isAdmin:boolean;
     public santaWithRecipients: any;
-    constructor(private dataService: DataService) {
+    constructor(private dataService: DataService, private route: ActivatedRoute) {
     }
 
     /**
@@ -19,15 +21,20 @@ export class SantaListComponent implements OnInit {
      * using to set users data
      */
     public ngOnInit(): void {
+        const role = this.route.snapshot.data['role'];
+        this.isAdmin = role ? role === 'admin' : false;
         this.users = this.dataService.getUsers();
         if (!this.users) {
             this.dataService.loadUsers().subscribe((data) => {
                 this.users = data.users;
-                this.dataService.setUsers(data);
+                this.dataService.setUsers(this.users);
                 this.updateRecipients();                
                 console.log(this.santaWithRecipients);
             });
+        } else {
+            this.updateRecipients();          
         }
+    
     }
 
     public updateRecipients() {

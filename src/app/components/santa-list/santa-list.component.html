@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-sm-12 text-center">
-  <p>Please enter your email address agaist your name to view your recipient and keep it secret  <i class="fa fa-smile-o"></i> !!! </p>
+  <p>Please enter your email address against your name to view your recipient and keep it secret  <i class="fa fa-smile-o"></i> !!! </p>
   </div>
 </div>
 <div class="row">
@@ -9,7 +9,7 @@
   <h3>Secret Santa List</h3>
   </div>
   <div class="col-sm-6">
-  <button class="btn btn-primary float-right" (click)="updateRecipients()">Reset Recipient</button>
+  <button *ngIf="isAdmin" class="btn btn-primary float-right" (click)="updateRecipients()">Reset Recipient</button>
   </div>
 </div>
 <div class="row">
@@ -18,16 +18,16 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Santa</th>
-      <th scope="col">Recipient</th>
-      <th scope="col">Enter E-mail</th>
+      <th scope="col" *ngIf="isAdmin">Recipient</th>
+      <th scope="col" *ngIf="!isAdmin">Enter E-mail</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let santRecp of santaWithRecipients; let i = index;">
       <th scope="row">{{i+1}}</th>
       <td>{{santRecp.santa.name.first + ' ' + santRecp.santa.name.last}}</td>
-       <td>{{santRecp.recipient.name.first + ' ' + santRecp.recipient.name.last}}</td> 
-      <td>
+       <td *ngIf="isAdmin">{{santRecp.recipient.name.first + ' ' + santRecp.recipient.name.last}}</td> 
+      <td *ngIf="!isAdmin">
         <app-validate-email [user]="santRecp"></app-validate-email>
       </td>
   </tr>

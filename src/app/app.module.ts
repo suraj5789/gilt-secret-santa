@@ -12,9 +12,9 @@ import { AppRoutingModule } from "./app.routing";
 import { SantaListComponent,
 HeaderComponent,
 FooterComponent,
-ValidateEmailComponent  } from './components';
+ValidateEmailComponent,
+HomeComponent  } from './components';
 import { DataService } from './services/data.service';
-
 
 
 @NgModule({
@@ -24,6 +24,7 @@ import { DataService } from './services/data.service';
     HeaderComponent,
     FooterComponent,
     ValidateEmailComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
