@@ -14,7 +14,7 @@ HeaderComponent,
 FooterComponent,
 ValidateEmailComponent,
 HomeComponent  } from './components';
-import { DataService } from './services/data.service';
+import { DataService, UserListResolver } from './services';
 
 
 @NgModule({
@@ -37,6 +37,7 @@ import { DataService } from './services/data.service';
   ],
   providers: [
     DataService,
+    UserListResolver
   ],
   bootstrap: [AppComponent]
 })

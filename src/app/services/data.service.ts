@@ -9,16 +9,15 @@ import { User } from '../models/user.model';
 @Injectable()
 export class DataService {
 
-  public dataLoaded;
   private users: User[];
-  private jsonPath: string = './assets/users.json';
+  private serviceURL: string = './assets/users.json';
   constructor(private http: HttpClient) {}
 
     /**
      * load all the users from json
      */
     public loadUsers(): Observable<any> {
-        return this.http.get(this.jsonPath);
+        return this.http.get(this.serviceURL);
     }
 
     /**

@@ -1,3 +1,4 @@
+import { UserListResolver } from './services';
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { SantaListComponent, HomeComponent } from './components';
@@ -13,11 +14,17 @@ import { SantaListComponent, HomeComponent } from './components';
             {
                 component: SantaListComponent,
                 path: "santa-user",
+                resolve : {
+                    data : UserListResolver
+                },
                 data : {role : 'user'}
             },
             {
                 component: SantaListComponent,
                 path: "santa-admin",
+                resolve : {
+                    data : UserListResolver
+                },
                 data : {role : 'admin'}
             },
             {

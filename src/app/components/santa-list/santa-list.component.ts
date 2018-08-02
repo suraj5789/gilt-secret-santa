@@ -23,18 +23,10 @@ export class SantaListComponent implements OnInit {
     public ngOnInit(): void {
         const role = this.route.snapshot.data['role'];
         this.isAdmin = role ? role === 'admin' : false;
-        this.users = this.dataService.getUsers();
-        if (!this.users) {
-            this.dataService.loadUsers().subscribe((data) => {
-                this.users = data.users;
-                this.dataService.setUsers(this.users);
-                this.updateRecipients();                
-                console.log(this.santaWithRecipients);
-            });
-        } else {
-            this.updateRecipients();          
-        }
-    
+        this.route.data.subscribe(({ data }) => {
+            this.users = data.users;
+            this.updateRecipients();
+        });    
     }
 
     public updateRecipients() {
