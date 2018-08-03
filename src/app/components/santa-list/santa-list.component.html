@@ -16,7 +16,7 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col">#</th>
+      <th scope="col" class="d-none d-sm-block">#</th>
       <th scope="col">Santa</th>
       <th scope="col" *ngIf="isAdmin">Recipient</th>
       <th scope="col" *ngIf="!isAdmin">Enter E-mail</th>
@@ -24,7 +24,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let santRecp of santaWithRecipients; let i = index;">
-      <th scope="row">{{i+1}}</th>
+      <th scope="row" class="d-none d-sm-block">{{i+1}}</th>
       <td>{{santRecp.santa.name.first + ' ' + santRecp.santa.name.last}}</td>
        <td *ngIf="isAdmin">{{santRecp.recipient.name.first + ' ' + santRecp.recipient.name.last}}</td> 
       <td *ngIf="!isAdmin">

@@ -1,0 +1,11 @@
+.message > p {
+    color: red;
+}
+
+.validate-email > input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.btn-outline-secondary {
+    cursor: not-allowed;
+}
