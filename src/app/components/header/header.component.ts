@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Header Component
+ */
 @Component({
   selector: 'gilt-header',
   templateUrl: './header.component.html',

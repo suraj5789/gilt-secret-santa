@@ -1,5 +1,5 @@
 /**
- * Product Model
+ * User Model
  */
 export class User {
     public guid: string;

@@ -1,7 +1,8 @@
 
 <div class="row">
   <div class="col-sm-12 text-center">
-  <p>Please enter your email address against your name to view your recipient and keep it secret  <i class="fa fa-smile-o"></i> !!! </p>
+  <p *ngIf="isAdmin">Ha Ha!! You are an Admin, you can reset anything. <i class="fa fa-smile-o"></i> !!! </p>
+  <p *ngIf="!isAdmin">Please enter your email address against your name to view your recipient and keep it secret  <i class="fa fa-smile-o"></i> !!! </p>
   </div>
 </div>
 <div class="row">

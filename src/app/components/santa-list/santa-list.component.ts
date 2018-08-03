@@ -3,6 +3,11 @@ import { DataService } from '../../services/data.service';
 import { User } from '../../models/user.model';
 import { ActivatedRoute }    from '@angular/router';
 
+/**
+ * SantaList Component
+ * View 1 - For admin
+ * View 2 - For user
+ */
 @Component({
     selector: 'gilt-santa-list',
     templateUrl: './santa-list.component.html',
@@ -18,21 +23,27 @@ export class SantaListComponent implements OnInit {
 
     /**
      * angular life cycle hook
-     * using to set users data
+     * subscribe for UserList
      */
     public ngOnInit(): void {
         const role = this.route.snapshot.data['role'];
         this.isAdmin = role ? role === 'admin' : false;
-        this.route.data.subscribe(({ data }) => {
-            this.users = data.users;
+        this.route.data.subscribe(({ users }) => {
+            this.users = users;
             this.updateRecipients();
         });    
     }
 
+    /**
+     * updateRecipients - call to suffle recipient list.
+     */
     public updateRecipients() {
         this.santaWithRecipients = this.setRecipientForSanta();
     }
 
+    /**
+     * setRecipientForSanta - Main logic to assign recipient to each User(Santa)
+     */
     private setRecipientForSanta(): any {
         let santaWithRecepients = [];
         let recipients = this.users.slice();

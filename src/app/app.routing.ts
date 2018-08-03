@@ -2,7 +2,9 @@ import { UserListResolver } from './services';
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { SantaListComponent, HomeComponent } from './components';
-
+/**
+ * Routing Config for whole application
+ */
 @NgModule({
     exports: [RouterModule],
     imports: [
@@ -15,7 +17,7 @@ import { SantaListComponent, HomeComponent } from './components';
                 component: SantaListComponent,
                 path: "santa-user",
                 resolve : {
-                    data : UserListResolver
+                    users : UserListResolver
                 },
                 data : {role : 'user'}
             },
@@ -23,7 +25,7 @@ import { SantaListComponent, HomeComponent } from './components';
                 component: SantaListComponent,
                 path: "santa-admin",
                 resolve : {
-                    data : UserListResolver
+                    users : UserListResolver
                 },
                 data : {role : 'admin'}
             },

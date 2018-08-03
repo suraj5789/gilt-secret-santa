@@ -3,16 +3,16 @@
 		<input type="email" name="email" class="form-control col-6" formControlName="email" placeholder="somoone@example.com" required>
 		<span class="input-group-btn col-4">
     <button
-	[ngClass]="{'btn': true, 'btn-outline-secondary': myform.controls['email'].invalid, 'btn-outline-success': myform.controls['email'].valid, 'w-100': true}"
+	[ngClass]="{'btn': true, 'btn-outline-secondary': myform.controls['email'].invalid, 'btn-outline-success': myform.controls['email'].valid}"
 	type="button"
 	[disabled]="myform.controls['email'].invalid"
 	(click)="openModal(template)"
-	>Verify</button>
+	>See Recipient</button>
     </span>
 		<div class="form-control-feedback message" *ngIf="myform.controls['email'].errors && (myform.controls['email'].dirty || myform.controls['email'].touched)">
 			<p *ngIf="myform.controls['email'].errors.required">Email is required.</p>
 			<p *ngIf="myform.controls['email'].errors.pattern">Enter valid email address.</p>
-			<p *ngIf="myform.controls['email'].errors.matchEmail">Email doesn't match with {{user.santa.name.first}}'s email</p>
+			<p *ngIf="myform.controls['email'].errors.matchEmail && (!myform.controls['email'].errors.pattern && !myform.controls['email'].errors.required)">Email doesn't match with {{user.santa.name.first}}'s email</p>
 		</div>
 	</div>
 </form>

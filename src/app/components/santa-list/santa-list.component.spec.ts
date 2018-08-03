@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SantaListComponent } from './';
+import { SantaListComponent } from './santa-list.component';
 
 describe('SantaListComponent', () => {
   let component: SantaListComponent;

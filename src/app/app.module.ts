@@ -11,18 +11,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app.routing";
 import { SantaListComponent,
 HeaderComponent,
-FooterComponent,
 ValidateEmailComponent,
 HomeComponent  } from './components';
 import { DataService, UserListResolver } from './services';
 
-
+/**
+ * Main Module for the application
+ */
 @NgModule({
   declarations: [
     AppComponent,
     SantaListComponent,
-    HeaderComponent,
-    FooterComponent,
+    HeaderComponent,    
     ValidateEmailComponent,
     HomeComponent,
   ],
